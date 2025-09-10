@@ -99,3 +99,27 @@ print(transferir(admin, 5000, "Cuenta #12345"))
 
 print("\n--- Intento con cliente ---")
 print(transferir(cliente, 2000, "Cuenta #98765"))
+
+
+import requests
+
+# Tu API Key (llave secreta)
+api_key = "TU_API_KEY_AQUI"
+
+# URL del servicio que vas a consultar
+url = "https://api.ejemplo.com/data"
+
+# Cabeceras con la API Key
+headers = {
+    "Authorization": f"Bearer {api_key}"
+}
+
+# Hacer la petición GET
+response = requests.get(url, headers=headers)
+
+# Revisar el código de estado
+if response.status_code == 200:
+    data = response.json()
+    print("Datos recibidos:", data)
+else:
+    print("Error al consultar la API:", response.status_code)
